@@ -1,0 +1,24 @@
+{% extends 'layout-normal.html' %}
+
+{% block content %}
+<ul class="list-group">
+    {% for album in albums %}
+    <li class="list-group-item">
+        <!-- {{ song.name }} | <a href="">View Lyrics</a> | <a href="">Flag</a> | <a href="">Delete</a> -->
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                    {{ album.name }}
+                </div>
+                <div class="col-sm">
+                    <a href="">View Details</a>
+                </div>
+            </div>
+        </div>
+    </li>
+
+    {% endfor %}
+</ul>
+
+{% endblock %}

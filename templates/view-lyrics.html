@@ -1,0 +1,22 @@
+{% extends 'layout-normal.html' %}
+
+{% block content %}
+<div class="container my-5 border border-primary rounded">
+    <div class="row justify-content-between">
+        <div class="col-4">
+            <h2>{{ song.title }}</h2>
+           
+        </div>
+        
+    </div>
+
+    
+    <p class="container my-5 border border-primary rounded">
+
+
+        <h3>Lyrics:</h3>  <br> {{ song.lyrics }}
+    </p>
+
+</div>
+
+{% endblock %}

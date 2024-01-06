@@ -1,0 +1,47 @@
+{% extends 'layout-creator.html' %}
+
+{% block content %}
+</div>
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+<div class="alert alert-info">
+    {% for category, message in messages %}
+    <p class="{{ category }}">{{ message }}</p>
+    {% endfor %}
+</div>
+{% endif %}
+{% endwith %}
+<div>
+    <h2 style="text-align: center; margin-top: 5%;">Upload Song</h2>
+</div>
+<br>
+<br>
+<div>
+    <form method="POST" action="{{ url_for('upload_song') }}" enctype="multipart/form-data">
+        <div class="mb-3 ms-5 me-5">
+            <label for="exampleInputName" class="form-label">Title</label>
+            <input type="text" class="form-control" id="exampleInputName" aria-describedby="nameHelp" name="title" required>
+        </div>
+        <div class="mb-3 ms-5 me-5">
+            <label for="exampleInputName" class="form-label">Upload File</label>
+            <input type="file" class="form-control" id="exampleInputName" aria-describedby="nameHelp" name="song-file-name">
+        </div>
+
+        <div class="mb-3 ms-5 me-5">
+            <label for="exampleInputPassword1" class="form-label" x>Release Date
+            </label>
+            <input type="date" class="form-control" id="exampleInputPassword1" name="release-date" required>
+        </div>
+        <div class="mb-3 ms-5 me-5">
+            <label for="exampleInputPassword1" class="form-label" x>Lyrics
+            </label>
+            <textarea class="form-control" name="lyrics" id="exampleInputPassword1" rows="4"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary ms-5 me-5">Upload</button>
+    </form>
+</div>
+
+
+
+{% endblock content %}

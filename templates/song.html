@@ -1,0 +1,54 @@
+{% extends 'layout-normal.html' %}
+
+{% block content %}
+<div class="container my-5 border border-primary rounded">
+    <div class="row justify-content-between">
+        <div class="col-4">
+            <h2>{{ song_name }}</h2>
+            <p>{{ artist_name }}</p>
+        </div>
+        <div class="col-4">
+            <form method="post" action="{{ url_for('update_song_rating', song_id=song_id) }}">
+                <div class="form-group">
+                    <label for="ratingDropdown">Rate this song:</label>
+                    <select class="form-control" id="ratingDropdown" name="rating">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Rating</button>
+            </form>
+            
+        </div>
+    </div>
+
+    
+    <p class="container my-5 border border-primary rounded">
+
+        
+        <form method="post" action="{{ url_for('update_lyrics_rating', song_id=song_id) }}">
+            <div class="form-group">
+                <label for="ratingDropdown">Rate this Lyrics:</label>
+                <select class="form-control" id="ratingDropdown" name="rating">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit Rating</button>
+        </form>
+
+        <br>
+        <br>
+
+        <h3>Lyrics:</h3>  <br> {{ lyrics }}
+    </p>
+
+</div>
+
+{% endblock %}

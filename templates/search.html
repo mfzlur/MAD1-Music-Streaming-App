@@ -1,0 +1,48 @@
+{% extends 'layout-normal.html' %}
+
+{% block content %}
+
+{% if albums|length > 0 %}
+<ul class="list-group">
+    {% for album in albums %}
+    <li class="list-group-item">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                    {{ album.name }}
+                </div>
+                <div class="col-sm">
+                    <a href="">View Details</a>
+                </div>
+            </div>
+        </div>
+    </li>
+
+    {% endfor %}
+</ul>
+
+{% else %}
+<ul class="list-group">
+    {% for song in songs %}
+    <li class="list-group-item">
+        <!-- {{ song.name }} | <a href="">View Lyrics</a> | <a href="">Flag</a> | <a href="">Delete</a> -->
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                    {{ song.title }}
+                </div>
+                <div class="col-sm">
+                    <a href="">View Lyrics</a> | <a href="">Flag</a> | <a href="">Delete</a>
+                </div>
+            </div>
+        </div>
+    </li>
+
+    {% endfor %}
+</ul>
+
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'layout-normal.html' %}
+{% block content %}
+
+ <h1>Create Playlist</h1>
+
+ <form action="{{ url_for('create_playlist') }}" method="POST" class="playlist-form">
+    <div class="mb-3">
+        <label for="playlist_name" class="form-label">Playlist Name:</label>
+        <input type="text" id="playlist_name" name="playlist_name" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="selected_songs" class="form-label">Select Songs:</label>
+        <select id="selected_songs" name="selected_songs" multiple class="form-select">
+            {% for song in songs %}
+                <option value="{{ song.id }}">{{ song.title }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create Playlist</button>
+</form>
+
+
+{% endblock content %}

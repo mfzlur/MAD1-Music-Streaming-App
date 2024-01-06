@@ -1,0 +1,28 @@
+{% extends 'layout-creator.html' %}
+
+{% block content %}
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+<div class="alert alert-info">
+    {% for category, message in messages %}
+    <p class="{{ category }}">{{ message }}</p>
+    {% endfor %}
+</div>
+{% endif %}
+{% endwith %}
+
+<div class="text-center my-4">
+    <h2>Register as creator</h2>
+</div>
+
+<div class="text-center">
+
+    <form method="POST" action="{{ url_for('creator_register') }}">
+        <div class="border rounded-circle p-3">
+            <button type="submit" class="btn btn-primary btn-lg" style="font-size: 5rem;"> + </button>
+        </div>
+    </form>
+</div>
+
+{% endblock content %}

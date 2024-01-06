@@ -1,0 +1,27 @@
+{% extends 'layout-creator.html' %}
+
+{% block content %}
+
+<form action="{{ url_for('edit_song', song_id=song_id) }}" method="POST">
+
+    <div class="mb-3">
+        <label for="exampleInputText1" class="form-label">Aritst Name:</label>
+        <input type="text" class="form-control" id="exampleInputText1" aria-describedby="textHelp" name="artist_name"
+            value="{{ artist_name }}" disabled>
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleInputText1" class="form-label">Song Title:</label>
+        <input type="text" class="form-control" id="exampleInputText1" aria-describedby="textHelp" name="song_title" value="{{ song_title }}" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleInputText1" class="form-label">Lyrics:</label>
+        <input type="text" class="form-control" id="exampleInputText1" aria-describedby="textHelp" ame="song_title" value="{{ lyrics }}" required>
+    </div>
+
+    <div>
+        <input type="submit" value="Update" />
+    </div>
+</form>
+{% endblock %}
